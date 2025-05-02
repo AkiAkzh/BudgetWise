@@ -16,13 +16,13 @@ services:
   main_app:
     build: ./microservices/main_app
     container_name: budgetwise-app
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn microservices.main_app.main:app --host 0.0.0.0 --port 8880 --reload
     ports:
-      - "8000:8000"
+      - "8880:8880"
     depends_on:
       - db
     volumes:
-      - ./microservices/main_app:/app
+      - .:/app
     networks:
       - budgetwise-net
 

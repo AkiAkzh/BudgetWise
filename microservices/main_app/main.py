@@ -12,7 +12,6 @@ from microservices.main_app.core.database import init_db
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Запускается при старте и завершении приложения"""
     init_logger()
     await init_db()
     yield
@@ -28,5 +27,5 @@ app = FastAPI(
 
 app.add_middleware(ErrorHandlingMiddleware)
 
-app.include_router(auth_router, prefix="api/auth", tags=["auth"])
+app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
 

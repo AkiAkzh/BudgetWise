@@ -16,8 +16,8 @@ COPY . .
 ENV PYTHONPATH="/app"
 
 # 6. Открываем порт
-EXPOSE 8000
+EXPOSE 8880
 
 
 
-CMD ["uvicorn", "main_app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "main_app.main:app", "--host", "0.0.0.0", "--port", "8880", "--reload"]

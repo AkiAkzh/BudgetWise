@@ -1,6 +1,5 @@
 import os
-
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 from functools import lru_cache
 
 class Settings(BaseSettings):
@@ -26,9 +25,21 @@ class Settings(BaseSettings):
     POSTGRES_PORT: str
     DATABASE_URL: str
 
+
+    # SMTP
+    SMTP_HOST: str
+    SMTP_PORT: int
+    SMTP_USER: str
+    SMTP_PASSWORD: str
+
+
+    # Хэширование
+    PASSWORD_HASH_ALGORITHM: str = "bcrypt"
+
     class Config:
         env_file = os.path.join(os.path.dirname(__file__), '../../../environments/app.env')
         case_sensitive = True
+        extra = "allow"
 
 @lru_cache()
 def get_settings():
