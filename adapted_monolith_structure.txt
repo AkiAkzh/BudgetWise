@@ -1,0 +1,46 @@
+budgetwise/
+├── microservices/
+│   └── main_app/
+│       ├── api/
+│       │   ├── auth/
+│       │   │   ├── api/
+│       │   │   │   ├── __init__.py
+│       │   │   │   └── auth_router.py          # Роуты: регистрация, логин и т.д.
+│       │   │   ├── models/
+│       │   │   │   ├── __init__.py
+│       │   │   │   └── user.py                 # SQLModel: User, Token
+│       │   │   ├── schemas/
+│       │   │   │   ├── __init__.py
+│       │   │   │   └── auth_schema.py          # DTO: UserCreate, LoginRequest
+│       │   │   ├── services/
+│       │   │   │   ├── __init__.py
+│       │   │   │   └── auth_service.py         # Логика регистрации, логина
+│       │   │   ├── repository/
+│       │   │   │   ├── __init__.py
+│       │   │   │   └── user_repository.py      # Работа с БД (users)
+│       │   │   ├── tests/
+│       │   │   │   ├── __init__.py
+│       │   │   │   └── test_auth.py            # Юнит-тесты
+│       │   │   └── __init__.py
+│       ├── core/
+│       │   ├── __init__.py
+│       │   ├── config.py                   # Настройки
+│       │   └── security.py                 # JWT, хэши, токены
+│       ├── main.py                             # Инициализация FastAPI
+│       ├── Dockerfile
+│       ├── requirements.txt
+│       └── __init__.py
+├── libs/
+│   ├── __init__.py
+│   ├── common_models.py                         # SuccessResponse, ErrorResponse
+│   ├── exceptions.py                            # CustomHTTPException и потомки
+│   ├── error_handler.py                         # Universal handler
+│   ├── logger.py
+│   └── utils.py
+├── migrations/
+│   └── versions/                                # alembic revision files
+├── docker-compose.yml
+├── environments/
+│   ├── app.env
+│   └── postgres.example.env
+└── README.md
