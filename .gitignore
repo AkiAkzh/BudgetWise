@@ -1,0 +1,56 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyt
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+microservices/**/.venv/
+
+# --- Env files ---
+*.env
+.env.*
+environments/*.env
+!environments/*.example.env
+
+# --- FastAPI / Backend ---
+/environments/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.pytest_cache/
+
+# --- Frontend (Node.js, React и прочее) ---
+/microservices/frontend/node_modules/
+build/
+dist/
+npm-debug.log
+yarn-error.log
+
+# --- IDEs and editors ---
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# --- Temporary or generated files ---
+*.log
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Diagrams / temporary text ---
+Untitled Diagram.drawio
+adapted_microservice_structure.txt
+adapted_mictoservice_structure.txt
