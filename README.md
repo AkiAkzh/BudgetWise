@@ -70,13 +70,6 @@ docker-compose up --build
 
 ---
 
-## 🧑‍💻 Автор
-
-**Акжан Матаев**  
-📫 Email: _укажи свой email_  
-🐙 GitHub: [github.com/your-username](https://github.com/your-username)
-
----
 
 ## ⚠️ Статус
 
