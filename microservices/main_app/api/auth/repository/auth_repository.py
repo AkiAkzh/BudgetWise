@@ -44,7 +44,7 @@ async def get_user_by_refresh_token(refresh_token: str, session: AsyncSession) -
     result = await session.execute(statement)
     return result.scalars().first()
 
-async def change_password_by_user_id(user_id: UUID, new_password: str, session: AsyncSession) -> Auth | None:
+async def update_password_by_user_id(user_id: UUID, new_password: str, session: AsyncSession) -> Auth | None:
     statement = select(Auth).where(Auth.id == user_id)
     result = await session.execute(statement)
     user : Auth = result.scalar_one_or_none()
@@ -57,7 +57,7 @@ async def change_password_by_user_id(user_id: UUID, new_password: str, session: 
 
     return None
 
-async def change_role_by_user_id(user_id: UUID, change_role_request: AuthChangeRole, session: AsyncSession) -> Auth | None:
+async def update_role_by_user_id(user_id: UUID, change_role_request: AuthChangeRole, session: AsyncSession) -> Auth | None:
     statement = select(Auth).where(Auth.id == user_id)
     result = await session.execute(statement)
     user : Auth = result.scalar_one_or_none()

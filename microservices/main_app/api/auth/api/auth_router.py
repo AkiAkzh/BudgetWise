@@ -9,6 +9,7 @@ from microservices.main_app.api.auth.schemas.auth_schema import AuthLogin, AuthT
 from microservices.main_app.api.auth.services import auth_service
 from microservices.main_app.core.database import get_session
 from microservices.main_app.core.security import get_current_user
+from microservices.main_app.api.auth.services import profile_service
 
 auth_router = APIRouter()
 
@@ -61,7 +62,7 @@ async def refresh(
 @auth_router.get("/me", status_code=200, response_model=SuccessResponse[GetMe])
 async def get_me(request: Request, user: GetMe = Depends(get_current_user)):
 
-    result = await auth_service.get_me(request=request, current_user=user)
+    result = await profile_service.get_me(request=request, current_user=user)
     return SuccessResponse(data=result, message="Successfully retrieved")
 
 
@@ -74,7 +75,7 @@ async def change_password(
         session: AsyncSession = Depends(get_session)
 ):
 
-    await  auth_service.change_password_by_user_id(
+    await  profile_service.change_password_by_user_id(
         request=request,
         password_request=password_request,
         user_id=user_id,
@@ -93,7 +94,7 @@ async def change_role(
         session: AsyncSession = Depends(get_session)
 ):
 
-    await auth_service.change_role_by_user_id(
+    await profile_service.change_role_by_user_id(
         request=request,
         user_id=user_id,
         change_role_data=change_role_data,
